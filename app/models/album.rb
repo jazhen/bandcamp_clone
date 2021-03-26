@@ -31,9 +31,9 @@ class Album < ApplicationRecord
       if !['image/jpeg', 'image/png'].include?(art.blob.content_type)
         errors[:art] << 'File is not of type .jpg or .png.'
         art.purge
-      elsif art.blob.byte_size > 5_000_000
-        errors[:art] << 'File size is larger than 5MB.'
-        art.purge
+      # elsif art.blob.byte_size > 5_000_000
+      #   errors[:art] << 'File size is larger than 5MB.'
+      #   art.purge
       end
     else
       errors[:art] << 'Please add cover art for this album.'
